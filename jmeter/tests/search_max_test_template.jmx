@@ -215,20 +215,16 @@ try {
           <stringProp name="scriptLanguage">groovy</stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">0</stringProp>
         </TestAction>
         <hashTree>
-          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-            <doubleProp>
-              <name>throughput</name>
-              <value>8.5714</value>
-              <savedValue>0.0</savedValue>
-            </doubleProp>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+            <stringProp name="throughput">${__P(TG2_THROUGHPUT,8.5714)}</stringProp>
             <intProp name="calcMode">0</intProp>
-            <stringProp name="TestPlan.comments">${__P(UTG2_TARGET_THROUGHPUT)}</stringProp>
+            <stringProp name="TestPlan.comments">${__P(TG2_THROUGHPUT,8.5714)}</stringProp>
           </ConstantThroughputTimer>
           <hashTree/>
         </hashTree>
@@ -243,8 +239,8 @@ try {
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="UTG-3">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-2019789778">
-            <stringProp name="706445533">${__P(TG2_START_THREADS,71)}</stringProp>
+          <collectionProp name="1670175882">
+            <stringProp name="297621308">${__P(TG3_START_THREADS,71)}</stringProp>
             <stringProp name="-657217422">${__P(TG3_INITIAL_DELAY,0)}</stringProp>
             <stringProp name="227097786">${__P(TG3_STARTUP_TIME,720)}</stringProp>
             <stringProp name="1104367352">${__P(TG3_HOLD_TIME,14400)}</stringProp>
@@ -297,20 +293,16 @@ try {
           <stringProp name="scriptLanguage">groovy</stringProp>
         </JSR223PreProcessor>
         <hashTree/>
-        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
           <stringProp name="ActionProcessor.duration">0</stringProp>
         </TestAction>
         <hashTree>
-          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
-            <doubleProp>
-              <name>throughput</name>
-              <value>9.2958</value>
-              <savedValue>0.0</savedValue>
-            </doubleProp>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+            <stringProp name="throughput">${__P(TG3_THROUGHPUT,9.2958)}</stringProp>
             <intProp name="calcMode">0</intProp>
-            <stringProp name="TestPlan.comments">${__P(UTG3_TARGET_THROUGHPUT)} </stringProp>
+            <stringProp name="TestPlan.comments">${__P(TG3_THROUGHPUT,9.2958)}</stringProp>
           </ConstantThroughputTimer>
           <hashTree/>
         </hashTree>
