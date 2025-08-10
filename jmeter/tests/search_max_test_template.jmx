@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan">
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+    </TestPlan>
+    <hashTree>
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener influx 1.11.8">
+        <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="influxdbMetricsSender" elementType="Argument">
+              <stringProp name="Argument.name">influxdbMetricsSender</stringProp>
+              <stringProp name="Argument.value">org.apache.jmeter.visualizers.backend.influxdb.HttpMetricsSender</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="influxdbUrl" elementType="Argument">
+              <stringProp name="Argument.name">influxdbUrl</stringProp>
+              <stringProp name="Argument.value">http://localhost:8086/write?db=jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="application" elementType="Argument">
+              <stringProp name="Argument.name">application</stringProp>
+              <stringProp name="Argument.value">jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="measurement" elementType="Argument">
+              <stringProp name="Argument.name">measurement</stringProp>
+              <stringProp name="Argument.value">jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="summaryOnly" elementType="Argument">
+              <stringProp name="Argument.name">summaryOnly</stringProp>
+              <stringProp name="Argument.value">false</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="samplersRegex" elementType="Argument">
+              <stringProp name="Argument.name">samplersRegex</stringProp>
+              <stringProp name="Argument.value">.*</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="percentiles" elementType="Argument">
+              <stringProp name="Argument.name">percentiles</stringProp>
+              <stringProp name="Argument.value">90;95;99</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="testTitle" elementType="Argument">
+              <stringProp name="Argument.name">testTitle</stringProp>
+              <stringProp name="Argument.value">jmeter</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="eventTags" elementType="Argument">
+              <stringProp name="Argument.name">eventTags</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
+      </BackendListener>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">true</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+        <boolProp name="clearEachIteration">true</boolProp>
+        <boolProp name="useExpires">true</boolProp>
+        <boolProp name="CacheManager.controlledByThread">false</boolProp>
+      </CacheManager>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+        <stringProp name="CounterConfig.start">10</stringProp>
+        <stringProp name="CounterConfig.end">10000000</stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">Counter</stringProp>
+        <stringProp name="CounterConfig.format"></stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="UTG-1">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="1096082765">
+            <stringProp name="209904503">${__P(TG1_START_THREADS,300)}</stringProp>
+            <stringProp name="1031726320">${__P(TG1_INITIAL_DELAY,0)}</stringProp>
+            <stringProp name="1044746236">${__P(TG1_STARTUP_TIME,720)}</stringProp>
+            <stringProp name="-1501656202">${__P(TG1_HOLD_TIME,14400)}</stringProp>
+            <stringProp name="1865507966">${__P(TG1_SHUTDOWN_TIME,0)}</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor UTG-1" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import groovy.json.JsonSlurper
+
+try {
+    // Получаем конфиг для UTG-1
+    def utgConfig = new JsonSlurper().parseText(props.get(&apos;utg1Config&apos;))
+    def utg = ctx.getThreadGroup()
+
+    // Установка переменной для Constant Throughput Timer
+    if (utgConfig.targetThroughput != null) {
+        vars.put(&apos;UTG1_TARGET_THROUGHPUT&apos;, utgConfig.targetThroughput.toString())
+        log.info(&quot;Установлен targetThroughput для UTG-1: ${utgConfig.targetThroughput} samples/min&quot;)
+    } else {
+        log.warn(&quot;targetThroughput не указан для UTG-1, используется значение по умолчанию&quot;)
+    }
+
+    // Настройка ступеней нагрузки
+    utg.getThreadGroupSchedule().clear()
+    
+    utgConfig.stages.eachWithIndex { stage, index -&gt;
+        utg.addNewSchedule()
+        utg.setStartThreads(stage.threads as int)
+        utg.setInitialDelay(stage.delay as int)
+        utg.setRampUp(stage.rampup as int)
+        utg.setHoldDuration(stage.duration as int)
+        utg.setShutdownTime(stage.shutdown as int)
+        
+        log.info(&quot;UTG-1: Ступень ${index + 1} - ${stage.threads} потоков, delay: ${stage.delay} сек&quot;)
+    }
+} catch (Exception e) {
+    log.error(&quot;Ошибка в PreProcessor UTG-1: &quot; + e.getMessage(), e)
+    throw e
+}</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+            <stringProp name="throughput">${__P(TG1_THROUGHPUT,9.6)}</stringProp>
+            <intProp name="calcMode">0</intProp>
+            <stringProp name="TestPlan.comments"> ${__P(UTG1_TARGET_THROUGHPUT)}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler UTG1">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">return(0)</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="UTG-2">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="1797794791">
+            <stringProp name="419534265">${__P(TG2_START_THREADS,147)}</stringProp>
+            <stringProp name="187254449">${__P(TG2_INITIAL_DELAY,0)}</stringProp>
+            <stringProp name="635922011">${__P(TG2_STARTUP_TIME,720)}</stringProp>
+            <stringProp name="1948839223">${__P(TG2_HOLD_TIME,14400)}</stringProp>
+            <stringProp name="1021036095">${__P(TG2_SHUTDOWN_TIME,0)}</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor UTG-2" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import groovy.json.JsonSlurper
+
+try {
+    // Получаем конфиг для UTG-2
+    def utgConfig = new JsonSlurper().parseText(props.get(&apos;utg2Config&apos;))
+    def utg = ctx.getThreadGroup()
+
+    // Установка переменной для Constant Throughput Timer
+    if (utgConfig.targetThroughput != null) {
+        vars.put(&apos;UTG2_TARGET_THROUGHPUT&apos;, utgConfig.targetThroughput.toString())
+        log.info(&quot;Установлен targetThroughput для UTG-2: ${utgConfig.targetThroughput} samples/min&quot;)
+    } else {
+        log.warn(&quot;targetThroughput не указан для UTG-2, используется значение по умолчанию&quot;)
+    }
+
+    // Настройка ступеней нагрузки
+    utg.getThreadGroupSchedule().clear()
+    
+    utgConfig.stages.eachWithIndex { stage, index -&gt;
+        utg.addNewSchedule()
+        utg.setStartThreads(stage.threads as int)
+        utg.setInitialDelay(stage.delay as int)
+        utg.setRampUp(stage.rampup as int)
+        utg.setHoldDuration(stage.duration as int)
+        utg.setShutdownTime(stage.shutdown as int)
+        
+        log.info(&quot;UTG-2: Ступень ${index + 1} - ${stage.threads} потоков, delay: ${stage.delay} сек&quot;)
+    }
+} catch (Exception e) {
+    log.error(&quot;Ошибка в PreProcessor UTG-2: &quot; + e.getMessage(), e)
+    throw e
+}</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>8.5714</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+            <stringProp name="TestPlan.comments">${__P(UTG2_TARGET_THROUGHPUT)}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler UTG2">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">return(0)</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="UTG-3">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="-2019789778">
+            <stringProp name="706445533">${__P(TG2_START_THREADS,71)}</stringProp>
+            <stringProp name="-657217422">${__P(TG3_INITIAL_DELAY,0)}</stringProp>
+            <stringProp name="227097786">${__P(TG3_STARTUP_TIME,720)}</stringProp>
+            <stringProp name="1104367352">${__P(TG3_HOLD_TIME,14400)}</stringProp>
+            <stringProp name="176564224">${__P(TG3_SHUTDOWN_TIME,0)}</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <intProp name="LoopController.loops">-1</intProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor UTG-3" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import groovy.json.JsonSlurper
+
+try {
+    // Получаем конфиг для UTG-3
+    def utgConfig = new JsonSlurper().parseText(props.get(&apos;utg3Config&apos;))
+    def utg = ctx.getThreadGroup()
+
+    // Установка переменной для Constant Throughput Timer
+    if (utgConfig.targetThroughput != null) {
+        vars.put(&apos;UTG3_TARGET_THROUGHPUT&apos;, utgConfig.targetThroughput.toString())
+        log.info(&quot;Установлен targetThroughput для UTG-3: ${utgConfig.targetThroughput} samples/min&quot;)
+    } else {
+        log.warn(&quot;targetThroughput не указан для UTG-3, используется значение по умолчанию&quot;)
+    }
+
+    // Настройка ступеней нагрузки
+    utg.getThreadGroupSchedule().clear()
+    
+    utgConfig.stages.eachWithIndex { stage, index -&gt;
+        utg.addNewSchedule()
+        utg.setStartThreads(stage.threads as int)
+        utg.setInitialDelay(stage.delay as int)
+        utg.setRampUp(stage.rampup as int)
+        utg.setHoldDuration(stage.duration as int)
+        utg.setShutdownTime(stage.shutdown as int)
+        
+        log.info(&quot;UTG-3: Ступень ${index + 1} - ${stage.threads} потоков, delay: ${stage.delay} сек&quot;)
+    }
+} catch (Exception e) {
+    log.error(&quot;Ошибка в PreProcessor UTG-2: &quot; + e.getMessage(), e)
+    throw e
+}</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">0</stringProp>
+        </TestAction>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>throughput</name>
+              <value>9.2958</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="calcMode">0</intProp>
+            <stringProp name="TestPlan.comments">${__P(UTG3_TARGET_THROUGHPUT)} </stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler UTG3">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">return(0)</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

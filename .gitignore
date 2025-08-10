@@ -1,0 +1,22 @@
+# Временные файлы JMeter
+*.jmx~
+*.jtl
+*.csv
+*.log
+*.tmp
+
+# Результаты тестов
+/results/
+/temp/
+
+# Файлы IDE
+.idea/
+*.iml
+
+# Файлы ОС
+.DS_Store
+Thumbs.db
+
+# Jenkins
+workspace/
+builds/
