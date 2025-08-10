@@ -98,45 +98,6 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor UTG-1" enabled="false">
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="script">import groovy.json.JsonSlurper
-
-try {
-    // Получаем конфиг для UTG-1
-    def utgConfig = new JsonSlurper().parseText(props.get(&apos;utg1Config&apos;))
-    def utg = ctx.getThreadGroup()
-
-    // Установка переменной для Constant Throughput Timer
-    if (utgConfig.targetThroughput != null) {
-        vars.put(&apos;UTG1_TARGET_THROUGHPUT&apos;, utgConfig.targetThroughput.toString())
-        log.info(&quot;Установлен targetThroughput для UTG-1: ${utgConfig.targetThroughput} samples/min&quot;)
-    } else {
-        log.warn(&quot;targetThroughput не указан для UTG-1, используется значение по умолчанию&quot;)
-    }
-
-    // Настройка ступеней нагрузки
-    utg.getThreadGroupSchedule().clear()
-    
-    utgConfig.stages.eachWithIndex { stage, index -&gt;
-        utg.addNewSchedule()
-        utg.setStartThreads(stage.threads as int)
-        utg.setInitialDelay(stage.delay as int)
-        utg.setRampUp(stage.rampup as int)
-        utg.setHoldDuration(stage.duration as int)
-        utg.setShutdownTime(stage.shutdown as int)
-        
-        log.info(&quot;UTG-1: Ступень ${index + 1} - ${stage.threads} потоков, delay: ${stage.delay} сек&quot;)
-    }
-} catch (Exception e) {
-    log.error(&quot;Ошибка в PreProcessor UTG-1: &quot; + e.getMessage(), e)
-    throw e
-}</stringProp>
-          <stringProp name="scriptLanguage">groovy</stringProp>
-        </JSR223PreProcessor>
-        <hashTree/>
         <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
@@ -176,45 +137,6 @@ try {
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor UTG-2" enabled="false">
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="script">import groovy.json.JsonSlurper
-
-try {
-    // Получаем конфиг для UTG-2
-    def utgConfig = new JsonSlurper().parseText(props.get(&apos;utg2Config&apos;))
-    def utg = ctx.getThreadGroup()
-
-    // Установка переменной для Constant Throughput Timer
-    if (utgConfig.targetThroughput != null) {
-        vars.put(&apos;UTG2_TARGET_THROUGHPUT&apos;, utgConfig.targetThroughput.toString())
-        log.info(&quot;Установлен targetThroughput для UTG-2: ${utgConfig.targetThroughput} samples/min&quot;)
-    } else {
-        log.warn(&quot;targetThroughput не указан для UTG-2, используется значение по умолчанию&quot;)
-    }
-
-    // Настройка ступеней нагрузки
-    utg.getThreadGroupSchedule().clear()
-    
-    utgConfig.stages.eachWithIndex { stage, index -&gt;
-        utg.addNewSchedule()
-        utg.setStartThreads(stage.threads as int)
-        utg.setInitialDelay(stage.delay as int)
-        utg.setRampUp(stage.rampup as int)
-        utg.setHoldDuration(stage.duration as int)
-        utg.setShutdownTime(stage.shutdown as int)
-        
-        log.info(&quot;UTG-2: Ступень ${index + 1} - ${stage.threads} потоков, delay: ${stage.delay} сек&quot;)
-    }
-} catch (Exception e) {
-    log.error(&quot;Ошибка в PreProcessor UTG-2: &quot; + e.getMessage(), e)
-    throw e
-}</stringProp>
-          <stringProp name="scriptLanguage">groovy</stringProp>
-        </JSR223PreProcessor>
-        <hashTree/>
         <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
@@ -254,45 +176,6 @@ try {
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
       </kg.apc.jmeter.threads.UltimateThreadGroup>
       <hashTree>
-        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor UTG-3" enabled="false">
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="script">import groovy.json.JsonSlurper
-
-try {
-    // Получаем конфиг для UTG-3
-    def utgConfig = new JsonSlurper().parseText(props.get(&apos;utg3Config&apos;))
-    def utg = ctx.getThreadGroup()
-
-    // Установка переменной для Constant Throughput Timer
-    if (utgConfig.targetThroughput != null) {
-        vars.put(&apos;UTG3_TARGET_THROUGHPUT&apos;, utgConfig.targetThroughput.toString())
-        log.info(&quot;Установлен targetThroughput для UTG-3: ${utgConfig.targetThroughput} samples/min&quot;)
-    } else {
-        log.warn(&quot;targetThroughput не указан для UTG-3, используется значение по умолчанию&quot;)
-    }
-
-    // Настройка ступеней нагрузки
-    utg.getThreadGroupSchedule().clear()
-    
-    utgConfig.stages.eachWithIndex { stage, index -&gt;
-        utg.addNewSchedule()
-        utg.setStartThreads(stage.threads as int)
-        utg.setInitialDelay(stage.delay as int)
-        utg.setRampUp(stage.rampup as int)
-        utg.setHoldDuration(stage.duration as int)
-        utg.setShutdownTime(stage.shutdown as int)
-        
-        log.info(&quot;UTG-3: Ступень ${index + 1} - ${stage.threads} потоков, delay: ${stage.delay} сек&quot;)
-    }
-} catch (Exception e) {
-    log.error(&quot;Ошибка в PreProcessor UTG-2: &quot; + e.getMessage(), e)
-    throw e
-}</stringProp>
-          <stringProp name="scriptLanguage">groovy</stringProp>
-        </JSR223PreProcessor>
-        <hashTree/>
         <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Flow Control Action">
           <intProp name="ActionProcessor.action">1</intProp>
           <intProp name="ActionProcessor.target">0</intProp>
